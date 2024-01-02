@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.app-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34; /* ou qualquer outra cor desejada */
+}
+
+.center-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+  height: 100px;
+  padding: 10px;
+}
+
+.button {
+  width: 100%;
+  height: 100%;
+  margin-left: 10px;
+  font-size: 16px;
+  background-color: #33b249; /* Cor de fundo do botão */
+  color: #212729; /* Cor do texto do botão */
+  border: 1px solid #61dafb; /* Borda do botão */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno do botão */
+  cursor: pointer; /* Cursor ao passar sobre o botão */
+  transition: background-color 0.3s ease; /* Transição suave ao mudar a cor de fundo */
+}
+.button:hover {
+  background-color: #5adbb5; /* Cor de fundo do botão ao passar o mouse */
+  color: #ffffff; /* Cor do texto do botão ao passar o mouse */
+}

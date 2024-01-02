@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/backend  # Mapeia o diretório atual para o contêiner em /backend
+    ports:
+      - 8000:8000  # Mapeia a porta 8000 do host para a porta 8000 do contêiner
+    depends_on:
+      - database  # Garante que este serviço depende do serviço "database"
+    environment:
+      - POSTGRES_DB=dbunlockr
+      - POSTGRES_USER=unlockr_admin
+      - POSTGRES_PASSWORD=LiLEXXhP2727@
+
+  database:
+    image: postgres:13
+    restart: always  # Reinicia o PostgreSQL automaticamente em caso de erro
+    environment:
+      - POSTGRES_DB=dbunlockr  # Nome do banco de dados
+      - POSTGRES_USER=unlockr_admin  # Nome de usuário do PostgreSQL
+      - POSTGRES_PASSWORD=LiLEXXhP2727@  # Senha do PostgreSQL deve ser definida externamente
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Mapeia o volume para os dados do PostgreSQL
+
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379  # Mapeia a porta 6379 do host para a porta 6379 do contêiner
+
+volumes:
+  postgres_data:
